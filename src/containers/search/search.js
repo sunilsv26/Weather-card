@@ -31,11 +31,16 @@ class Search extends Component {
     let newInput = event.target.value;
     this.setState({ input: newInput });
   };
+
+  onClickHandlerResult=(event)=>{
+    event.currentTarget.style.visibility='hidden';
+  }
   render() {
     return (
       <Fragment>
         <SearchBar value={this.state.input} onChange={this.onChangeHandler} />
         <CityName
+          onClick={this.onClickHandlerResult}
           cityName={this.props.city}
           temp={(this.props.temp - 273.15).toFixed(2)}
           dayType={this.props.weather}
