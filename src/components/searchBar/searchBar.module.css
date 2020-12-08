@@ -1,0 +1,17 @@
+.SearchField{
+    z-index: 100;
+    border: none;
+    padding: 8px;
+    padding-left: 38px;
+    font-size: 12px;
+    outline: none;
+    box-shadow: 1px 1px 5px gray;
+    border-radius: 7px;
+    width: 90%;
+    margin: 10px auto;
+    box-sizing: border-box;
+  }
+  
+  .SearchField:focus{
+    border: 1px solid #63bdfa;
+  }
