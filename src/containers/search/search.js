@@ -19,6 +19,7 @@ class Search extends Component {
         let lat = position.coords.latitude;
         let lon = position.coords.longitude;
         this.props.onGetUserLocation(lat, lon);
+        
       },
       (err) => this.setState({ error: err })
     );
@@ -29,11 +30,13 @@ class Search extends Component {
 
   onChangeHandler = (event) => {
     let newInput = event.target.value;
+    this.props.onSearchCityCoords(event.target.value)
     this.setState({ input: newInput });
   };
 
   onClickHandlerResult=(event)=>{
     event.currentTarget.style.visibility='hidden';
+    this.props.onSearchCity(this.props.lat,this.props.lon)
   }
   render() {
     return (
@@ -64,6 +67,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onGetUserLocation: (lat, lon) => dispatch(actions.getUserCity(lat, lon)),
+    onSearchCityCoords: (cityName) => dispatch(actions.searchCityCoords(cityName)),
+    onSearchCity:(lat,lon)=>dispatch(actions.searchCity(lat,lon)),
   };
 };
 
