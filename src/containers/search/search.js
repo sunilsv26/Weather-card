@@ -1,57 +1,65 @@
 //Component with state which responsible for input,sevenDay report
 
-import React, { Component, Fragment } from 'react';
-import {connect} from 'react-redux';
+import React, { Component, Fragment } from "react";
+import { connect } from "react-redux";
 
-import SearchBar from '../../components/searchBar/searchBar';
-import CityName from '../../components/searchResult/cityName/cityName';
-import * as actions from '../../store/actions/search'
+import SearchBar from "../../components/searchBar/searchBar";
+import CityName from "../../components/searchResult/cityName/cityName";
+import * as actions from "../../store/actions/search";
 
-class Search extends Component{
-    state={
-        input:'',
-        error:null,
-    }
+class Search extends Component {
+  state = {
+    input: "",
+    error: null,
+  };
 
-    componentDidMount(){
-        navigator.geolocation.getCurrentPosition((position)=>{
-            let lat= position.coords.latitude;
-            let lon=position.coords.longitude;
-            this.props.onGetUserLocation(lat,lon);
-            
-        },
-        (err)=>this.setState({error:err}))
-        setTimeout(()=>{this.setState({input:this.props.city})},3000)
-    }
+  componentDidMount() {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        let lat = position.coords.latitude;
+        let lon = position.coords.longitude;
+        this.props.onGetUserLocation(lat, lon);
+      },
+      (err) => this.setState({ error: err })
+    );
+    setTimeout(() => {
+      this.setState({ input: this.props.city });
+    }, 3000);
+  }
 
-    onChangeHandler=(event)=>{
-        let newInput = event.target.value;
-        this.setState({input:newInput})
-    }
-    render(){
-        return(
-            <Fragment>
-                <SearchBar value={this.state.input} onChange={this.onChangeHandler}/>
-                <CityName />
-            </Fragment>
-        )
-    }
+  onChangeHandler = (event) => {
+    let newInput = event.target.value;
+    this.setState({ input: newInput });
+  };
+  render() {
+    return (
+      <Fragment>
+        <SearchBar value={this.state.input} onChange={this.onChangeHandler} />
+        <CityName
+          cityName={this.props.city}
+          temp={(this.props.temp - 273.15).toFixed(2)}
+          dayType={this.props.weather}
+          icon={this.props.icon}
+        />
+      </Fragment>
+    );
+  }
 }
-const mapStateToProps=state=>{
-    return{
-        city:state.search.city,
-        lat:state.search.lat,
-        lon:state.search.lon,
-        temp:state.search.temp,
-        weather:state.search.weather,
-        icon:state.search.icon,
-    }
-}
+const mapStateToProps = (state) => {
+  return {
+    city: state.search.city,
+    lat: state.search.lat,
+    lon: state.search.lon,
+    temp: state.search.temp,
+    weather: state.search.weather,
+    icon: state.search.icon,
+  };
+};
 
-const mapDispatchToProps=dispatch=>{
-    return{
-        onGetUserLocation:(lat,lon)=>dispatch(actions.getUserCity(lat,lon))
-    }
-}
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onGetUserLocation: (lat, lon) => dispatch(actions.getUserCity(lat, lon)),
+  };
+};
 
-export default connect(mapStateToProps,mapDispatchToProps) (Search);
+export default connect(mapStateToProps, mapDispatchToProps)(Search);
