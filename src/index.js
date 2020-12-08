@@ -7,7 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import {Provider} from 'react-redux';
 import {createStore,combineReducers,applyMiddleware,compose} from 'redux';
 import thunk from 'redux-thunk';
-import searchReducer from './store/reducers/searchReducer'
+import searchReducer from './store/reducers/search'
 
 const rootReducer=combineReducers({
   search:searchReducer,
