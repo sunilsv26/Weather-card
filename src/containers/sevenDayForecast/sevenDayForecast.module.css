@@ -1,0 +1,11 @@
+.SevenDayForecast{
+    z-index: 100;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 20%;
+    overflow: scroll;
+    border: none;
+    width: 90%;
+    margin: 10px auto;
+    padding: 2%;
+  }
