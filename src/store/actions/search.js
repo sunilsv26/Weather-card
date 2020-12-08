@@ -9,6 +9,7 @@ export const getUserCityStart=()=>{
 }
 
 export const getUserCitySucess=(userData)=>{
+    console.log(userData);
     return{
         type:actiontypes.GET_USER_CITY_SUCCESS,
         city:userData.city,

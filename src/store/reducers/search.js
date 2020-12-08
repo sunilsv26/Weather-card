@@ -21,7 +21,9 @@ const reducer=(state=initialState,action)=>{
             weather:'',
         }
 
-        case actionTypes.GET_USER_CITY_SUCCESS:return{
+        case actionTypes.GET_USER_CITY_SUCCESS:
+        console.log(action.city);    
+        return{
             ...state,
             city:action.city,
             lat:action.lat,
