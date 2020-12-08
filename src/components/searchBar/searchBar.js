@@ -1,3 +1,5 @@
+//Input component where user can search for cities
+
 import React from 'react';
 import classes from './searchBar.module.css';
 
