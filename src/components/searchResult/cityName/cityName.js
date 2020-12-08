@@ -3,6 +3,7 @@ import React from 'react';
 
 import classes from './cityName.module.css';
 
+
 const cityName=(props)=>{
     return(
         <div className={classes.SearchResult} onClick={(event)=>props.onClick(event)}>
@@ -16,8 +17,8 @@ const cityName=(props)=>{
                     </div>
                     <div>{props.dayType}</div>
                 </div>
-                <div>
-                    {props.icon}
+                <div className={classes.Icon}>
+                <img src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`} alt="icon" style={{backgroundColor:'lightsteelblue',borderRadius:'6px'}}/>
                 </div>
             </div>
 

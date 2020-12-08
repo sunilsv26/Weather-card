@@ -20,3 +20,13 @@
   align-items: center;
   justify-content: flex-end;
 }
+
+.Icon{
+  width: 20px;
+  height: 20px;
+}
+
+.Icon img{
+  width: 100%;
+  height: 100%;
+}
