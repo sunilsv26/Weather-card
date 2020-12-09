@@ -2,11 +2,14 @@
 
 import React from "react";
 import { connect } from "react-redux";
-import classes from "./detailedForecst.module.css";
+import classes from "./detailedForecast.module.css";
+import PressureAndHumidity from './pressureAndHumidity/pressureAndHumidity'
 
 const detailedForecast=(props)=>{
     return(
-        <div className={classes.DetailedForecast}></div>
+        <div className={classes.DetailedForecast}>
+            <PressureAndHumidity pressure={props.pressure} humidity={props.humidity}/>
+        </div>
     )
 }
 
