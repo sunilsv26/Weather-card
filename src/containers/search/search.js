@@ -42,13 +42,15 @@ class Search extends Component {
     return (
       <Fragment>
         <SearchBar value={this.state.input} onChange={this.onChangeHandler} />
+        {this.state.input.toLowerCase() === this.props.city.toLowerCase() && this.state.input!=='' ?
         <CityName
-          onClick={this.onClickHandlerResult}
-          cityName={this.props.city}
-          temp={(this.props.temp - 273.15).toFixed(2)}
-          dayType={this.props.weather}
-          icon={this.props.icon}
-        />
+        onClick={this.onClickHandlerResult}
+        cityName={this.props.city}
+        temp={(this.props.temp - 273.15).toFixed(2)}
+        dayType={this.props.weather}
+        icon={this.props.icon}
+      />:null}
+        
       </Fragment>
     );
   }
