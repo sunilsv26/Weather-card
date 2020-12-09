@@ -1,0 +1,13 @@
+/*For Mobile device*/
+.PressureAndHumidity {
+  display: flex;
+  margin: 8px 5px;
+  justify-content: space-between;
+}
+
+.Pressure {
+  display: block;
+  padding: 5px;
+  font-size: 10px;
+  background-color: #ecf4fc;
+}
