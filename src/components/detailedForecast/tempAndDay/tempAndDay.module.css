@@ -1,0 +1,17 @@
+.TempAndDay {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.Temp{
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.TempAndDay img{
+    width: auto;
+    height: 40px;
+    margin: 0px;
+    padding: 0px;
+}
