@@ -7,6 +7,8 @@ let initialState = {
     icon:'',
     temp:'',
     weather:'',
+    dailyData:[],
+    hourlyData:[],
 }
 
 const reducer=(state=initialState,action)=>{
@@ -43,7 +45,6 @@ const reducer=(state=initialState,action)=>{
             temp:'',
             weather:'',
             icon:'',
-            loading:true,
         }
         case actionTypes.SEARCH_CITY_COORD_SUCCESS:  
         return{
@@ -60,8 +61,6 @@ const reducer=(state=initialState,action)=>{
         }
         case actionTypes.SEARCH_CITY_START:return{
             ...state,
-            icon:'',
-            loading:true,
         }
         case actionTypes.SEARCH_CITY_SUCCESS:return{
             ...state,
@@ -70,6 +69,9 @@ const reducer=(state=initialState,action)=>{
             weather:action.weather,
             dailyData:action.dailyData,
             hourlyData:action.hourlyData
+        }
+        case actionTypes.SEARCH_CITY_FAIL:return{
+            ...state,
         }
         
         default:

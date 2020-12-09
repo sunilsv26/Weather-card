@@ -73,6 +73,7 @@ export const searchCityCoordsFail=(error)=>{
 export const searchCityCoords=(cityName)=>{
     return dispatch=>{
         searchCityCoordsStart();
+        searchCityStart();
         axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=8814bcaf1acaec252ca58dccf3239760&units=metric`)
         .then(res=>{
             let lat = res.data.coord.lat;
@@ -128,7 +129,6 @@ export const searchCity=(lat,lon)=>{
         }
             )
         .catch(err=>dispatch(searchCityFail(err)))
-
     }
 }
 
@@ -147,3 +147,4 @@ export const daySelection=(el)=>{
         day:WEEK_DAYS[date.getDay()],
     }
 }
+

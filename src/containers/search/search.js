@@ -32,6 +32,7 @@ class Search extends Component {
     let newInput = event.target.value;
     this.props.onSearchCityCoords(event.target.value)
     this.setState({ input: newInput });
+    this.props.onSearchCity(this.props.lat,this.props.lon)
   };
 
   onClickHandlerResult=(event)=>{
@@ -42,7 +43,7 @@ class Search extends Component {
     return (
       <Fragment>
         <SearchBar value={this.state.input} onChange={this.onChangeHandler} />
-        {this.state.input.toLowerCase() === this.props.city.toLowerCase() && this.state.input!=='' ?
+        {this.state.input.toLowerCase() === this.props.city.toLowerCase()?
         <CityName
         onClick={this.onClickHandlerResult}
         cityName={this.props.city}

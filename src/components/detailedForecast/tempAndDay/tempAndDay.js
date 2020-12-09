@@ -11,10 +11,6 @@ const tempAndDay = (props) => {
         src={`http://openweathermap.org/img/wn/${props.icon}@2x.png`}
         alt="temp"
       />
-      <div className={classes.Day   }>
-        {props.day}
-        <div>{props.city}</div>
-      </div>
     </div>
   );
 };
