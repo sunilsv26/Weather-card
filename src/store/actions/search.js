@@ -132,7 +132,10 @@ export const searchCity=(lat,lon)=>{
     }
 }
 
+const WEEK_DAYS = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat','Sun']
+
 export const daySelection=(el)=>{
+    let date = new Date(el.dt*1000);
     return{
         type:actiontypes.ON_DAY_SELECTION,
         temp:el.temp.day,
@@ -141,5 +144,8 @@ export const daySelection=(el)=>{
         humidity:el.humidity,
         sunrise:el.sunrise,
         sunset:el.sunset,
+        day:WEEK_DAYS[date.getDay()],
+        date:date.getDate(),
+        month:date.getMonth(),
     }
 }
