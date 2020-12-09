@@ -19,6 +19,7 @@ const reducer =(state=initialState,action)=>{
             humidity:action.humidity,
             sunrise:action.sunrise,
             sunset:action.sunset,
+            day:action.day,
         }
         default:
             return state;
