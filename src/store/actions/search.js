@@ -145,7 +145,5 @@ export const daySelection=(el)=>{
         sunrise:el.sunrise,
         sunset:el.sunset,
         day:WEEK_DAYS[date.getDay()],
-        date:date.getDate(),
-        month:date.getMonth(),
     }
 }
